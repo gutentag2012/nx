@@ -100,7 +100,9 @@ export default async function runExecutor(
 
       const jsonRegex = /\{(?:[^{}])*\}/g;
       const jsonObjectsInOutput = result.toString().match(jsonRegex);
-      const resultJson = JSON.parse(jsonObjectsInOutput[jsonObjectsInOutput.length - 1]);
+      const resultJson = JSON.parse(
+        jsonObjectsInOutput[jsonObjectsInOutput.length - 1]
+      );
 
       const distTags = resultJson['dist-tags'] || {};
       if (distTags[tag] === currentVersion) {
